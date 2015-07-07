@@ -37,6 +37,8 @@ public class formServlet extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             
             //get data
+            
+            
             String name = request.getParameter("name");
             String email = request.getParameter("email");
             String zip = request.getParameter("zip");
@@ -54,21 +56,32 @@ public class formServlet extends HttpServlet {
             out.println("<title>Servlet formServlet</title>");            
             out.println("</head>");
             out.println("<body>");
+            out.println("<h1>WARNARadio survey result</h1>");
             out.println("Name : "+name);
             out.println("<br>Email : "+email);
             out.println("<br>Zip : "+zip);
-            out.println("<br>Music preference : ");
+            out.println("<br>Music preference : <br>");
+            int l=1;
             for(int i =0 ;i<preference.length;i++)
             {
-                out.println(preference[i]+" ,");
+                if(preference[i]!=null)
+                {
+                    out.println((l)+". "+preference[i]+"<br>");
+                    l++;
+                }
             }
             out.println("<br>Decade : "+decade);
             out.println("<br>Favorite day to listen : "+days);
             out.println("<br>I listen to WARNARadio "+day);
-            out.println("<br>Prefer to listen ");
+            out.println("<br>Prefer to listen : <br>");
+            l=1;
              for(int i =0 ;i<place.length;i++)
             {
-                out.println(place[i]+" ,");
+                if(place[i]!=null)
+                {
+                    out.println((l)+"<br>. "+place[i]+"<br>");
+                    l++;
+                }
             }
             out.println("<br>Additional comments : "+comments);
             
