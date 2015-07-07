@@ -61,17 +61,27 @@ public class formServlet extends HttpServlet {
             out.println("<br>Email : "+email);
             out.println("<br>Zip : "+zip);
             out.println("<br>Music preference : ");
+            int l=1;
             for(int i =0 ;i<preference.length;i++)
             {
-                out.println(preference[i]+" ,");
+                if(preference[i]!=null)
+                {
+                    out.println((l)+". "+preference[i]+"<br>");
+                    l++;
+                }
             }
             out.println("<br>Decade : "+decade);
             out.println("<br>Favorite day to listen : "+days);
             out.println("<br>I listen to WARNARadio "+day);
             out.println("<br>Prefer to listen ");
+            l=1;
              for(int i =0 ;i<place.length;i++)
             {
-                out.println(place[i]+" ,");
+                if(place[i]!=null)
+                {
+                    out.println((l)+". "+place[i]+"<br>");
+                    l++;
+                }
             }
             out.println("<br>Additional comments : "+comments);
             
