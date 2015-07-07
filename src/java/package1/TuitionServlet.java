@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package package1;
+package myPackage;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author user8
  */
-@WebServlet(name = "BMIServlet", urlPatterns = {"/BMIServlet"})
-public class BMIServlet extends HttpServlet {
+@WebServlet(name = "TuitionServlet", urlPatterns = {"/TuitionServlet"})
+public class TuitionServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,40 +34,38 @@ public class BMIServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-           
-            //read from data
-            String n = (String)request.getParameter("name");          
-            double w = Double.parseDouble(request.getParameter("weight")) ;
-            double h= Double.parseDouble (request.getParameter("height")) ;
             
-            //calculate BMI
-            double bmi= (w/(h*h));
-            String d;
+            //read data from tiution.html
+                  
+            int a = Integer.parseInt(request.getParameter("aasTextBox")) ;
+            int e = Integer.parseInt (request.getParameter("eslTextBox")) ;
+            String type=(String)request.getParameter("Rate");
+             
+            //calculate total pay
+            double fee;
+                    
+            if("0".equals(type))
+                fee=(a*120)+(e*75);
             
-            if (bmi<18.5)
-              d="Underweight";
+            else if ("10".equals(type))
+                fee=((a*120)+(e*75)*0.90);
             
-            else if(18.4<bmi && bmi<25.0)
-                d="Normal";
-            
-            else if(24.9<bmi && bmi<30.0)
-                d="Overweight";
+            else if ("20".equals(type))
+                fee=((a*120)+(e*75)*0.80);
             
             else
-                d="Obese";
-            
+                fee=((a*120)+(e*75)*0.70);
+          
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>BMI Calculator</title>");            
+            out.println("<title>Tuition Calculator</title>");            
             out.println("</head>");
-            out.println("<body style=\"text-align: center\">");
-            out.println("<h2> -------------------- Result -------------------- </h2>");
-            out.println("<h3> Name : " + n + "</h3>");
-            out.println("<h3> Weight : " + w + " kg </h3>");
-            out.println("<h3> Height : " + h + " m</h3>");
-            out.println("<h3> BMI : " + bmi + "</h3>");
-            out.println("<h3> Description : Your body condition is " + d + "</h3>");
+            out.println("<h1> Summary : </h1>\n");
+            out.println("<h3> No of AAS Subject Taken : " + a + "</h3>");
+            out.println("<h3> No of ESL Subject Taken : " + e + "</h3>");
+            out.println("<h3> Discount Awarded : " + type + " %</h3>");
+            out.println("<h3> Total Fees : $" + fee + "</h3>");
             out.println("</body>");
             out.println("</html>");
         }
