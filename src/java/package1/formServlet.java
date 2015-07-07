@@ -60,7 +60,7 @@ public class formServlet extends HttpServlet {
             out.println("Name : "+name);
             out.println("<br>Email : "+email);
             out.println("<br>Zip : "+zip);
-            out.println("<br>Music preference : ");
+            out.println("<br>Music preference : <br>");
             int l=1;
             for(int i =0 ;i<preference.length;i++)
             {
@@ -73,13 +73,13 @@ public class formServlet extends HttpServlet {
             out.println("<br>Decade : "+decade);
             out.println("<br>Favorite day to listen : "+days);
             out.println("<br>I listen to WARNARadio "+day);
-            out.println("<br>Prefer to listen ");
+            out.println("<br>Prefer to listen : <br>");
             l=1;
              for(int i =0 ;i<place.length;i++)
             {
                 if(place[i]!=null)
                 {
-                    out.println((l)+". "+place[i]+"<br>");
+                    out.println((l)+"<br>. "+place[i]+"<br>");
                     l++;
                 }
             }
