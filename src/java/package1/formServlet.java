@@ -37,6 +37,8 @@ public class formServlet extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             
             //get data
+            
+            
             String name = request.getParameter("name");
             String email = request.getParameter("email");
             String zip = request.getParameter("zip");
@@ -54,6 +56,7 @@ public class formServlet extends HttpServlet {
             out.println("<title>Servlet formServlet</title>");            
             out.println("</head>");
             out.println("<body>");
+            out.println("<h1>WARNARadio survey result</h1>");
             out.println("Name : "+name);
             out.println("<br>Email : "+email);
             out.println("<br>Zip : "+zip);
