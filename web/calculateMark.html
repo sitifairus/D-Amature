@@ -12,13 +12,32 @@ and open the template in the editor.
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <script src="scripts/jquery.min.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm() {
+                var mid = document.forms["form"]["midterm"].value;
+                var f = document.forms["form"]["final"].value;
+                var proj = document.forms["form"]["project"].value;
+                if (mid < 0 || mid >100) {
+                    alert("Midterm Mark must be between 0 to 100");
+                    return false;
+                }
+                if (f < 0 || f >100) {
+                    alert("Final Mark must be between 0 to 100");
+                    return false;
+                }
+                if (proj < 0 || proj >100) {
+                    alert("Project Mark must be between 0 to 100");
+                    return false;
+                }
+            }
+        </script>
     </head>
     <body>
         <div align="center">
         <div align="center" style=" background-color: #FFBAD6; border: #761c19 solid; width:400px; padding-left: 50px; padding-right: 50px" >
             <div align="center" style="background-color: #ce8483; color: #080808"><h1>Grade Calculator</h1></div>
             <div >   
-            <form class="form-horizontal" role="form" name="form" action="./CalMarkServlet" method="GET">
+            <form class="form-horizontal" role="form" name="form" action="./CalMarkServlet" method="GET" onsubmit="return validateForm()">
                <div class="form-group">
                   <label for="midterm" class="col-sm-2 control-label">Midterm</label>
                   <div class="col-sm-10">
