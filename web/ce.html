@@ -4,11 +4,24 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
+<html lang="en">
     <head>
         <title>Currency Exchange</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        
+        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <script src="scripts/jquery.min.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
         <style>
             table.table1 {
                 width : 100px;
@@ -28,7 +41,7 @@ and open the template in the editor.
         <table id = "table1"  align = "center" border = "1">
             <tr><td colspan = "2" style = "background-color:red"  >CURRENCY EXCHANGE</td></tr>
             <tr>
-               <td width="100px"><form  action="./ceServlet" method="POST"> 
+               <td width="100px"><form  action="./ceServlet" method="POST" class="form-inline"> 
                    VND : <input type="text" name="vnd" >
                    <div><br>
                         <input type="radio" name="moneytype" value="USD">USD
@@ -36,7 +49,7 @@ and open the template in the editor.
                         <input type="radio" name="moneytype" value="JPY">JPY
                    </div>
                    <br>
-                   <input type="submit" value="Exchange" >
+                   <input type="submit" value="Exchange" class="btn btn-primary">
                    </form>
                </td> 
                <td width="50px"><table id = "table2" width="50%" align = "right" border = "1"> 
