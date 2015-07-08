@@ -79,7 +79,7 @@
                     </table></td>
             </tr>
         </table>
-        <% if((request.getParameter("subBtn")!=null)){
+        <% if((request.getParameter("moneytype")!=null)){
                         
             if(null != type)switch (type) {
                 case "USD":
