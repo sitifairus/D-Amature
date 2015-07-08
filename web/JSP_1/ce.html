@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Currency Exchange</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            table.table1 {
+                width : 100px;
+                text-align : center;
+            }
+            table.table2 {
+                width:25%;
+                
+            }
+            tr,td{
+               text-align:center; 
+            }
+        </style>    
+    </head>
+    <body>
+        
+        <table id = "table1"  align = "center" border = "1">
+            <tr><td colspan = "2" style = "background-color:red"  >CURRENCY EXCHANGE</td></tr>
+            <tr>
+               <td width="100px"><form  action="./ceServlet" method="POST"> 
+                   VND : <input type="text" name="vnd" >
+                   <div><br>
+                        <input type="radio" name="moneytype" value="USD">USD
+                        <input type="radio" name="moneytype" value="EURO">EUR
+                        <input type="radio" name="moneytype" value="JPY">JPY
+                   </div>
+                   <br>
+                   <input type="submit" value="Exchange" >
+                   </form>
+               </td> 
+               <td width="50px"><table id = "table2" width="50%" align = "right" border = "1"> 
+                       <tr><td colspan = "2">Exchange Rates</td></tr>
+                       <tr>
+                           <td>Currency</td>
+                           <td>Rate</td>
+                       </tr>
+                       <tr>
+                           <td>USD</td>
+                           <td>16,452</td>
+                       </tr>
+                       <tr>
+                           <td>EUR</td>
+                           <td>25,170.38</td>
+                       </tr>
+                       <tr>
+                           <td>JYP</td>
+                           <td>151.23</td>
+                       </tr>
+                    </table></td>
+            </tr>
+        </table>
+    </body>
+</html>
