@@ -53,7 +53,7 @@
         </form>    
         
         <%--java code--%>
-        <table align="center">
+       
         <%
             
             if(request.getParameter("aasTextBox") !=null){
@@ -109,7 +109,7 @@
            
                 
         %>
-        </table>
+        
         
         
         
