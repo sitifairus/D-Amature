@@ -61,8 +61,8 @@ public class BMIServlet extends HttpServlet {
             out.println("<head>");
             out.println("<title>BMI Calculator</title>");            
             out.println("</head>");
-            out.println("<body>");
-            out.println("<h2> ---------- Result ---------- </h2>");
+            out.println("<body style=\"text-align: center\">");
+            out.println("<h2> -------------------- Result -------------------- </h2>");
             out.println("<h3> Name : " + n + "</h3>");
             out.println("<h3> Weight : " + w + " kg </h3>");
             out.println("<h3> Height : " + h + " m</h3>");

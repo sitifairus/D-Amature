@@ -1,10 +1,9 @@
-package package1;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package myPackage;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,10 +15,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author asus
+ * @author user8
  */
-@WebServlet(urlPatterns = {"/formServlet"})
-public class formServlet extends HttpServlet {
+@WebServlet(name = "TuitionServlet", urlPatterns = {"/TuitionServlet"})
+public class TuitionServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,55 +35,37 @@ public class formServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             
-            //get data
+            //read data from tiution.html
+                  
+            int a = Integer.parseInt(request.getParameter("aasTextBox")) ;
+            int e = Integer.parseInt (request.getParameter("eslTextBox")) ;
+            String type=(String)request.getParameter("Rate");
+             
+            //calculate total pay
+            double fee;
+                    
+            if("0".equals(type))
+                fee=(a*120)+(e*75);
             
+            else if ("10".equals(type))
+                fee=((a*120)+(e*75)*0.90);
             
-            String name = request.getParameter("name");
-            String email = request.getParameter("email");
-            String zip = request.getParameter("zip");
-            String[] preference = request.getParameterValues("musicalPreference");
-            String decade = request.getParameter("select decade");
-            String days = request.getParameter("days");
-            String day = request.getParameter("select day");
-            String[] place = request.getParameterValues("place");
-            String comments = request.getParameter("comments");
-            String subscribe = request.getParameter("subscribe");
-   
+            else if ("20".equals(type))
+                fee=((a*120)+(e*75)*0.80);
+            
+            else
+                fee=((a*120)+(e*75)*0.70);
+          
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet formServlet</title>");            
+            out.println("<title>Tuition Calculator</title>");            
             out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>WARNARadio survey result</h1>");
-            out.println("Name : "+name);
-            out.println("<br>Email : "+email);
-            out.println("<br>Zip : "+zip);
-            out.println("<br>Music preference : <br>");
-            int l=1;
-            for(int i =0 ;i<preference.length;i++)
-            {
-                if(preference[i]!=null)
-                {
-                    out.println((l)+". "+preference[i]+"<br>");
-                    l++;
-                }
-            }
-            out.println("<br>Decade : "+decade);
-            out.println("<br>Favorite day to listen : "+days);
-            out.println("<br>I listen to WARNARadio "+day);
-            out.println("<br>Prefer to listen : <br>");
-            l=1;
-             for(int i =0 ;i<place.length;i++)
-            {
-                if(place[i]!=null)
-                {
-                    out.println((l)+"<br>. "+place[i]+"<br>");
-                    l++;
-                }
-            }
-            out.println("<br>Additional comments : "+comments);
-            
+            out.println("<h1> Summary : </h1>\n");
+            out.println("<h3> No of AAS Subject Taken : " + a + "</h3>");
+            out.println("<h3> No of ESL Subject Taken : " + e + "</h3>");
+            out.println("<h3> Discount Awarded : " + type + " %</h3>");
+            out.println("<h3> Total Fees : $" + fee + "</h3>");
             out.println("</body>");
             out.println("</html>");
         }

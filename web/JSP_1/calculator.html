@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+<body>
+<form name="TuitionCalculator" action= "./TuitionCalculator" method="GET" >
+<table style="width:100%">
+  <tr>
+    <center><head> TUITION CALCULATION </head>
+  </tr>
+  <tr>
+    <td>Number of AAS course(s):<input type="text" name="aasTextBox">($120)</td>		
+  </tr>
+  <br>
+  <br>
+  <tr>
+    <td>Number of ESL course(s):&nbsp<input type="text" name="eslTextBook">($70)</td>
+  </tr>
+</table>
+<br>
+
+Type of Student: &nbsp<select name="discountRateSelectBox">
+  <option value="0">Normal</option>
+  <option value="10">10% Discount</option>
+  <option value="20">20% Discount</option>
+  <option value="50">50% Discount</option>
+</select>
+
+<br><br>
+
+<input type="submit" value="Calculate" name="calculate">
+</form>
+</body>
+</html>

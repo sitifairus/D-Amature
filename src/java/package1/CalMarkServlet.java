@@ -1,10 +1,9 @@
-package package1;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package package1;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,10 +15,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author asus
+ * @author on
  */
-@WebServlet(urlPatterns = {"/formServlet"})
-public class formServlet extends HttpServlet {
+@WebServlet(name = "CalMarkServlet", urlPatterns = {"/CalMarkServlet"})
+public class CalMarkServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,56 +34,62 @@ public class formServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            
-            //get data
-            
-            
-            String name = request.getParameter("name");
-            String email = request.getParameter("email");
-            String zip = request.getParameter("zip");
-            String[] preference = request.getParameterValues("musicalPreference");
-            String decade = request.getParameter("select decade");
-            String days = request.getParameter("days");
-            String day = request.getParameter("select day");
-            String[] place = request.getParameterValues("place");
-            String comments = request.getParameter("comments");
-            String subscribe = request.getParameter("subscribe");
-   
+            String m = request.getParameter("midterm");
+            String f = request.getParameter("final");
+            String p = request.getParameter("project");
+            String ggrade;
+            String result;
+            int pnt;
+            double midterm=Double.parseDouble(m);
+            double fnl=Double.parseDouble(f);
+            double prjct=Double.parseDouble(p);
+            midterm = midterm/100*30;
+            fnl = fnl/100*30;
+            prjct = prjct/100*40;
+            double mark = midterm+fnl+prjct;
+            if(mark<60)
+            {
+                ggrade="F";
+                pnt=0;
+                result="Fail";
+            }
+            else if(mark<70)
+            {
+                ggrade="D";
+                pnt=1;
+                result="Pass";
+            }
+            else if( mark<80)
+            {
+                ggrade="C";
+                pnt=2;
+                result="Pass";
+            }
+            else if( mark<90)
+            {
+                ggrade="B"; 
+                pnt=3;
+                result="Pass";
+            }
+            else
+            {
+                ggrade="A"; 
+                pnt=4;
+                result="Pass";
+            }
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet formServlet</title>");            
+            out.println("<title>Result</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>WARNARadio survey result</h1>");
-            out.println("Name : "+name);
-            out.println("<br>Email : "+email);
-            out.println("<br>Zip : "+zip);
-            out.println("<br>Music preference : <br>");
-            int l=1;
-            for(int i =0 ;i<preference.length;i++)
-            {
-                if(preference[i]!=null)
-                {
-                    out.println((l)+". "+preference[i]+"<br>");
-                    l++;
-                }
-            }
-            out.println("<br>Decade : "+decade);
-            out.println("<br>Favorite day to listen : "+days);
-            out.println("<br>I listen to WARNARadio "+day);
-            out.println("<br>Prefer to listen : <br>");
-            l=1;
-             for(int i =0 ;i<place.length;i++)
-            {
-                if(place[i]!=null)
-                {
-                    out.println((l)+"<br>. "+place[i]+"<br>");
-                    l++;
-                }
-            }
-            out.println("<br>Additional comments : "+comments);
-            
+            out.println("<h1>Servlet Result at " + request.getContextPath() + "</h1>"
+                    + "<div>"
+                    + "Average : " +mark
+                    + "<br>Grade : "+ggrade
+                    + "<br>Point : "+pnt
+                    + "<br>Result :" +result
+                    + "</div>");
             out.println("</body>");
             out.println("</html>");
         }
