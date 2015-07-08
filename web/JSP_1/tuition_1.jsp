@@ -83,19 +83,19 @@
                if("Normal".equals(rate))
                {
                    fee=(aa*120)+(ee*75);
-                   out.println("<br>"+fee);
+                   
                }
                
                 else if ("10% Discount".equals(rate))
                 {
                     fee=((aa*120)+(ee*75)*0.90);
-                    out.println("<br>"+fee);
+                    
                 }
                
                else if ("20% Discount".equals(rate))
                 {
                     fee=((aa*120)+(ee*75)*0.80);
-                    out.println("<br>"+fee);
+                    
                 }
                
                else
