@@ -65,7 +65,7 @@
                 
             }
             
-            if(request.getParameter("eslTextBox") !=null)&& (request.getParameter("eslTextBox") !=null)){
+             if((request.getParameter("aasTextBox") !=null) && (request.getParameter("eslTextBox") !=null)){
                 if(request.getParameter("eslTextBox").equals(""))
                     out.println("<br><html><font color=red>Please enter number of ESL subject taken.</font></html>");
                 else
